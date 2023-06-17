@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+
+@mixin go() {
+    @include mat.core();
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }    
+
+    body {
+      display: grid;
+      background: var(--b-background);
+      color: var(--f-text);
+    }
+
+    * {
+        padding: 0px;
+        margin: 0px;
+        font-family: Roboto;
+        box-sizing: border-box;
+    }
+}

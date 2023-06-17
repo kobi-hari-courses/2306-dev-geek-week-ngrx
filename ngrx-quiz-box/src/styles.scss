@@ -1,8 +1,6 @@
 @use '@angular/material' as mat;
+@use 'main';
 @use 'theme';
 
-@include mat.core();
+@include main.go();
 @include theme.go(mat.$blue-palette, mat.$green-palette);
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
