@@ -24,6 +24,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "outputPath": "dist/ngrx-quiz-box",
             "index": "src/index.html",
             "main": "src/main.ts",
