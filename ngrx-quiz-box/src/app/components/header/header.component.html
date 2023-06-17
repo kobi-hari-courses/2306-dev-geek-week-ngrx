@@ -1,0 +1,8 @@
+<mat-icon>home</mat-icon>
+<h2>Quiz Box</h2>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a mat-tab-link routerLink="quizes">Quizes</a>
+    <a mat-tab-link routerLink="results">Results</a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
