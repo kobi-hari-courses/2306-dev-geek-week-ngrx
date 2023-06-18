@@ -1,0 +1,11 @@
+<div class="questions-list" 
+    cdkDropList [cdkDropListConnectedTo]="targetList"
+    [cdkDropListData]="questions"
+    >
+  <app-question-card
+    cdkDrag
+    *ngFor="let question of questions"
+    [question]="question"
+    [minimized]="true"
+  />
+</div>

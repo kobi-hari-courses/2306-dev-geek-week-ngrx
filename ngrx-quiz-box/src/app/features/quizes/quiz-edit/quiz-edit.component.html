@@ -5,7 +5,10 @@
         {{ name$ | async }}
         <span class="sub">({{ questions.length }} questions)</span>
       </h1>
-      <div class="questions" cdkDropList #targetList="cdkDropList">
+      <div class="questions" cdkDropList #targetList="cdkDropList"
+        (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListData]="questions"
+      >
         <app-question-card
           cdkDrag
           *ngFor="let question of questions; let i = index"
@@ -23,17 +26,7 @@
           <div class="search-box">
             <input type="search" matInput placeholder="Search" />
           </div>
-          <div class="questions-list" 
-            cdkDropList
-            [cdkDropListConnectedTo]="targetList"
-            >
-            <app-question-card
-              cdkDrag
-              *ngFor="let question of catalog$ | async"
-              [question]="question"
-              [minimized]="true"
-            />
-          </div>
+          <app-questions-source [questions]="(catalog$ | async)!" [targetList]="targetList"/>
         </div>
       </mat-tab>
       <mat-tab label="Edit">
