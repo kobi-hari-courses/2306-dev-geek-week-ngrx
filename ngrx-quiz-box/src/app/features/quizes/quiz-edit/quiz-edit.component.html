@@ -17,6 +17,12 @@
 </div>
 <div class="questions-panel">
   <div class="scrollable">
-    Bla Bla Bla
-  </div>
+    <div class="questions" cdkDropList>
+      <app-question-card
+        cdkDrag
+        *ngFor="let question of catalog$ | async"
+        [question]="question"
+      />
+    </div>
+</div>
 </div>

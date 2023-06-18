@@ -17,4 +17,6 @@ export class QuizEditComponent {
   name$ = of(SAMPLE_QUIZES[0].caption);
   questions$ = of(SAMPLE_QUIZES[0].questions);
 
+  catalog$ = of([...SAMPLE_QUIZES[0].questions, ...SAMPLE_QUIZES[1].questions, ...SAMPLE_QUIZES[2].questions]);
+
 }
