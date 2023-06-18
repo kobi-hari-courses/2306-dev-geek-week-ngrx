@@ -1,0 +1,10 @@
+:host {
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    .route-container {
+        padding: 8px;
+        display: grid;
+        grid-template-rows: 0px 1fr;
+    }
+}

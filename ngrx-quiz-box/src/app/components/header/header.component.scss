@@ -4,17 +4,22 @@
     flex-direction: row;
     align-items: center;
     padding: 0px 32px;
-    background-color: var(--p-100);
-    border-bottom: 2px solid var(--p-900);
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+    background-color: var(--p-50);
+    border-bottom: 1px solid var(--p-400);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
 
     &>* {
         margin: 10px;
     }
 
+    h2 {
+        color: var(--p-500);
+        font-size: 36px;
+        font-weight: 100;
+    }
 
-    mat-icon {
-        font-size: 42px;
+    img {
+        height: 56px;
     }
 
     nav {

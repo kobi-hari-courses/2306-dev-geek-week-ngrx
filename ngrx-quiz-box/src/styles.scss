@@ -3,4 +3,4 @@
 @use 'theme';
 
 @include main.go();
-@include theme.go(mat.$blue-palette, mat.$green-palette);
+@include theme.go(mat.$brown-palette, mat.$green-palette);
