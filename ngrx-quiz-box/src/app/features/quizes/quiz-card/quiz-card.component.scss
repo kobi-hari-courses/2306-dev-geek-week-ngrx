@@ -1,0 +1,18 @@
+:host {
+    display: grid;
+    
+    mat-card {
+        margin: 4px;
+
+        mat-icon {
+            font-size: 20px;
+            margin-inline-end: 4px;
+        }
+
+        mat-card-subtitle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}

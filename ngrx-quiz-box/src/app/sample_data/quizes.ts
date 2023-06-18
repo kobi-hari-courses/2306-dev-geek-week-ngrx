@@ -4,6 +4,7 @@ export const SAMPLE_QUIZES: Quiz[] = [
   {
     id: '120ab33bcd41',
     caption: 'RGB Colors Mixing',
+    imageUrl: 'https://cdn.britannica.com/70/191970-050-1EC34EBE/Color-wheel-light-color-spectrum.jpg',
     questions: [
       {
         caption: 'What do you get when you add Red to Green and Blue?',
@@ -61,6 +62,7 @@ export const SAMPLE_QUIZES: Quiz[] = [
   {
     id: '11dbac1231',
     caption: 'World Capitals',
+    imageUrl: 'https://img.freepik.com/free-vector/planet-earth_1308-82523.jpg?size=626&ext=jpg',
     questions: [
       {
         caption: 'What is the capital city of Hong Kong',
@@ -117,6 +119,7 @@ export const SAMPLE_QUIZES: Quiz[] = [
   {
     id: '6642341ffccdde',
     caption: 'Multiplication Basics', 
+    imageUrl: 'https://www.pngitem.com/pimgs/m/21-212871_body-math-signs-maths-icon-png-transparent-png.png',
     questions: [
       {
         caption: 'How much is 4 * 3', 
