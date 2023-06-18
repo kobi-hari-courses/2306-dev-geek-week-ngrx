@@ -19,7 +19,8 @@
           align-items: center;
           color: var(--f-secondary-text);
           font-size: 0.8em;
-          margin: 4px;
+          margin-top: 6px;
+          margin-inline-end: 12px;
 
           &.correct {
             color: var(--a-400);
@@ -27,6 +28,7 @@
 
           mat-icon {
             font-size: 14px;
+            margin-inline-end: 2px;
           }
         }
       }

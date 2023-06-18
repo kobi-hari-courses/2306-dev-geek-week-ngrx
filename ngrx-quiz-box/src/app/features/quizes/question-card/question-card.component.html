@@ -8,7 +8,8 @@
             *ngFor="let answer of question.answers; let i = index"
             [class.correct]="i === question.correctAnswer"
             >
-            <mat-icon *ngIf="i === question.correctAnswer">check</mat-icon>
+            <mat-icon *ngIf="i !== question.correctAnswer">radio_button_unchecked</mat-icon>
+            <mat-icon *ngIf="i === question.correctAnswer">check_circle</mat-icon>
             {{answer}}
         </div>            
         </mat-card-subtitle>
