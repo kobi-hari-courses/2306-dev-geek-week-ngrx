@@ -3,8 +3,10 @@
     {{ name$ | async }} 
     <span class="sub">({{questions.length}} questions)</span>
 </h1>
-  <app-question-card
+<div class="questions" cdkDropList>
+  <app-question-card cdkDrag
     *ngFor="let question of questions"
     [question]="question"
   />
+</div>
 </ng-container>
