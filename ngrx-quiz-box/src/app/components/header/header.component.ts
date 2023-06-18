@@ -5,6 +5,7 @@ import { NavItemDirective } from './nav-item.directive';
 import { RouterModule } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddQuizDialogComponent } from '../add-quiz-dialog/add-quiz-dialog.component';
+import { RunQuizDialogComponent } from '../run-quiz-dialog/run-quiz-dialog.component';
 
 @Component({
   selector: 'app-header',

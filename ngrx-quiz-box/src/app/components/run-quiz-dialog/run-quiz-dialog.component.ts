@@ -1,23 +1,22 @@
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { materialModules } from 'src/app/shared/material-modules';
 
 @Component({
-  selector: 'app-add-quiz-dialog',
+  selector: 'app-run-quiz-dialog',
   standalone: true,
   imports: [CommonModule, materialModules, ReactiveFormsModule],
-  templateUrl: './add-quiz-dialog.component.html',
-  styleUrls: ['./add-quiz-dialog.component.scss']
+  templateUrl: './run-quiz-dialog.component.html',
+  styleUrls: ['./run-quiz-dialog.component.scss']
 })
-export class AddQuizDialogComponent {
+export class RunQuizDialogComponent {
 
-  constructor(private matDialogRef: MatDialogRef<AddQuizDialogComponent>){}
+  constructor(private matDialogRef: MatDialogRef<RunQuizDialogComponent>){}
 
   form = new FormGroup({
-    caption: new FormControl('', Validators.required), 
-    image: new FormControl('')
+    user: new FormControl('', Validators.required)
   })
 
   submit() {
@@ -25,6 +24,7 @@ export class AddQuizDialogComponent {
       console.log('submitted', this.form.getRawValue())
       this.matDialogRef.close();
     }
+
   }
 
   cancel() {

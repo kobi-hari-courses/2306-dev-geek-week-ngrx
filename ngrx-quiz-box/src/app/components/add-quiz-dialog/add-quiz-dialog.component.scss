@@ -1,30 +1,31 @@
 :host {
+  div[mat-dialog-content] {
     display: flex;
     flex-direction: row;
     padding: 10px;
 
     .image {
-        padding: 10px;
-        img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            position: relative;
+      padding: 10px;
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        position: relative;
 
-            &:before {
-                content: ' ';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-image: url('/assets/logo.svg');
-            }
+        &:before {
+          content: " ";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-image: url("/assets/logo.svg");
         }
+      }
     }
 
     .form {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
-    
+  }
 }
