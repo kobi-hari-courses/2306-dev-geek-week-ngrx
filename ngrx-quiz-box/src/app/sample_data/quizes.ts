@@ -1,4 +1,3 @@
-import { asNativeElements } from '@angular/core';
 import { Quiz } from '../models/quiz.model';
 
 export const SAMPLE_QUIZES: Quiz[] = [

@@ -1,8 +1,9 @@
 import { Question } from "./question.model";
+import { Quiz } from "./quiz.model";
 
 export interface QuizResult {
     readonly uid: string;
     readonly userName: string;
-    readonly questions: Question[];
+    readonly quiz: Quiz;
     readonly answers: number[];
 }
