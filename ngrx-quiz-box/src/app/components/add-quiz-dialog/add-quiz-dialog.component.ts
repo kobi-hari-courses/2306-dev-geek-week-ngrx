@@ -29,4 +29,8 @@ export class AddQuizDialogComponent {
 
   }
 
+  cancel() {
+    this.matDialogRef.close();
+  }
+
 }

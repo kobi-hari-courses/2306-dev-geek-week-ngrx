@@ -1,18 +1,31 @@
 <div class="image">
-    <img #image [src]="form.controls['image'].value">
+  <img #image [src]="form.controls['image'].value" />
 </div>
 
-<div class="form" [formGroup]="form" (keydown.enter)="submit()">
-    <mat-form-field>
-        <mat-label>Caption</mat-label>
-        <input type="text" matInput formControlName="caption">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Image URL</mat-label>
-        <input type="text" matInput formControlName="image">
-    </mat-form-field>
+<div
+  class="form"
+  [formGroup]="form"
+  (keydown.enter)="submit()"
+  (keydown.escape)="cancel()"
+>
+  <mat-form-field>
+    <mat-label>Caption</mat-label>
+    <input type="text" matInput formControlName="caption" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Image URL</mat-label>
+    <input type="text" matInput formControlName="image" />
+  </mat-form-field>
 
-    <button mat-raised-button color="accent" [disabled]="!form.valid"
-        (click)="submit()"
-    >Create</button>
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!form.valid"
+      (click)="submit()"
+    >
+      Create
+    </button>
+    <button mat-button color="accent" (click)="cancel()">Cancel</button>
+  </div>
 </div>
