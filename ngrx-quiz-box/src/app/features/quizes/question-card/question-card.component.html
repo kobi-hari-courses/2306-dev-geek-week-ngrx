@@ -21,16 +21,22 @@
   </mat-card-header>
   <mat-card-content>
     <mat-chip-set>
-        <mat-chip color="accent" [highlighted]="i === question.correctAnswer"
-            *ngFor="let answer of question.answers; let i = index"
+      <mat-chip
+        color="accent"
+        [highlighted]="i === question.correctAnswer"
+        *ngFor="let answer of question.answers; let i = index"
+      >
+        <mat-icon matChipAvatar *ngIf="i === question.correctAnswer"
+          >check</mat-icon
         >
-        <mat-icon matChipAvatar *ngIf="i === question.correctAnswer">check</mat-icon>
-        {{answer}}
-    </mat-chip>
+        {{ answer }}
+      </mat-chip>
     </mat-chip-set>
-
   </mat-card-content>
   <mat-card-actions *ngIf="!minimized">
-    <button mat-button>Delete</button>
+    <button mat-button color="warn">
+      <mat-icon>delete</mat-icon>
+      Delete
+    </button>
   </mat-card-actions>
 </mat-card>
