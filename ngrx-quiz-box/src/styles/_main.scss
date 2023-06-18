@@ -41,4 +41,8 @@
       background-color: var(--p-300);
       border-radius: 3px;
     }
+
+    mat-tab-group.stretch .mat-mdc-tab-body-wrapper {
+      flex: 1;
+    }
 }

@@ -14,6 +14,9 @@ export class QuestionCardComponent {
   @Input()
   index?: number;
 
+  @Input()
+  minimized = false;
+
   @Input({required: true})
   question!: Question;
 

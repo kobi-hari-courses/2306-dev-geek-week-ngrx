@@ -18,7 +18,7 @@
         </mat-card-subtitle>
         <mat-icon mat-card-avatar color="primary">help</mat-icon>
     </mat-card-header>
-    <mat-card-actions>
+    <mat-card-actions *ngIf="!minimized">
         <button mat-button>Delete</button>
     </mat-card-actions>
 </mat-card>

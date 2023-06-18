@@ -1,6 +1,6 @@
 :host {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 400px;
 
   .quiz-panel {
     position: relative;
@@ -27,19 +27,35 @@
   }
 
   .questions-panel {
-    position: relative;
     grid-column: 2;
     margin-inline-start: 4px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    position: relative;
 
-    .scrollable {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: var(--p-50);
-        border-inline-start: 2px solid var(--p-200);
-        padding: 4px;
-        overflow-y: auto;
+    mat-tab-group {
+      grid-row: 2;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      input[type=search] {
+        position: sticky;
+        top: 5px;
+        z-index: 3;
+        width: calc(100% - 20px);
+        margin: 5px;  
+        color: var(--p-500);
+        font-size: 1.5em;
+        border: 2px solid var(--p-500);
+        border-radius: 1em;
+        padding-inline-start: 10px;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+        outline: 0px transparent;
+      }
     }
+
+
   }
 
 
