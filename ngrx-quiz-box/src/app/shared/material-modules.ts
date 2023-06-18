@@ -1,6 +1,7 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
+import { MatChipsModule } from "@angular/material/chips";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
@@ -15,5 +16,6 @@ export const materialModules = [
     MatCardModule, 
     DragDropModule, 
     MatFormFieldModule, 
-    MatInputModule
+    MatInputModule, 
+    MatChipsModule
 ]
