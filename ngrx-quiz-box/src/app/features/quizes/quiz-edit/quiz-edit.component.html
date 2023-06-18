@@ -1,12 +1,22 @@
-<ng-container *ngIf="(questions$ | async) as questions">
-  <h1>
-    {{ name$ | async }} 
-    <span class="sub">({{questions.length}} questions)</span>
-</h1>
-<div class="questions" cdkDropList>
-  <app-question-card cdkDrag
-    *ngFor="let question of questions"
-    [question]="question"
-  />
+<div class="quiz-panel">
+  <div class="scrollable">
+    <ng-container *ngIf="questions$ | async as questions">
+      <h1>
+        {{ name$ | async }}
+        <span class="sub">({{ questions.length }} questions)</span>
+      </h1>
+      <div class="questions" cdkDropList>
+        <app-question-card
+          cdkDrag
+          *ngFor="let question of questions"
+          [question]="question"
+        />
+      </div>
+    </ng-container>  
+  </div>
 </div>
-</ng-container>
+<div class="questions-panel">
+  <div class="scrollable">
+    Bla Bla Bla
+  </div>
+</div>
