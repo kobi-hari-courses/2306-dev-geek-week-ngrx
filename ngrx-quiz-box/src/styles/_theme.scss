@@ -22,17 +22,21 @@
   $plt-warn: mat.define-palette(mat.$red-palette);
 
   @if $is-light {
-    @return mat.define-light-theme((color: (primary: $plt-primary,
+    @return mat.define-light-theme((
+      color: (primary: $plt-primary,
           accent: $plt-accent,
           warn: $plt-warn,
-        )));
+        ), 
+      density: -1));
   }
 
   @else {
-    @return mat.define-dark-theme((color: (primary: $plt-primary,
+    @return mat.define-dark-theme((
+      color: (primary: $plt-primary,
           accent: $plt-accent,
           warn: $plt-warn,
-        )));
+        ), 
+      density: -1));
   }
 }
 

@@ -1,24 +1,36 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            <ng-container *ngIf="index">
-                {{index}}. 
-            </ng-container>
-            {{question.caption}}
-        </mat-card-title>
-        <mat-card-subtitle>
-            <div class="answer" 
+  <mat-card-header>
+    <mat-card-title>
+      <ng-container *ngIf="index"> {{ index }}. </ng-container>
+      {{ question.caption }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      <!-- <div
+        class="answer"
+        *ngFor="let answer of question.answers; let i = index"
+        [class.correct]="i === question.correctAnswer"
+      >
+        <mat-icon *ngIf="i !== question.correctAnswer"
+          >radio_button_unchecked</mat-icon
+        >
+        <mat-icon *ngIf="i === question.correctAnswer">check_circle</mat-icon>
+        {{ answer }}
+      </div> -->
+    </mat-card-subtitle>
+    <mat-icon mat-card-avatar color="primary">help</mat-icon>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-chip-set>
+        <mat-chip color="accent" [highlighted]="i === question.correctAnswer"
             *ngFor="let answer of question.answers; let i = index"
-            [class.correct]="i === question.correctAnswer"
-            >
-            <mat-icon *ngIf="i !== question.correctAnswer">radio_button_unchecked</mat-icon>
-            <mat-icon *ngIf="i === question.correctAnswer">check_circle</mat-icon>
-            {{answer}}
-        </div>            
-        </mat-card-subtitle>
-        <mat-icon mat-card-avatar color="primary">help</mat-icon>
-    </mat-card-header>
-    <mat-card-actions *ngIf="!minimized">
-        <button mat-button>Delete</button>
-    </mat-card-actions>
+        >
+        <mat-icon matChipAvatar *ngIf="i === question.correctAnswer">check</mat-icon>
+        {{answer}}
+    </mat-chip>
+    </mat-chip-set>
+
+  </mat-card-content>
+  <mat-card-actions *ngIf="!minimized">
+    <button mat-button>Delete</button>
+  </mat-card-actions>
 </mat-card>
