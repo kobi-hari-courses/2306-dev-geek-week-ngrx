@@ -1,20 +1,31 @@
-<mat-label>Caption</mat-label>
-<mat-form-field>
-    <textarea matInput></textarea>
-</mat-form-field>
+<ng-container [formGroup]="form">
+  <mat-label>Caption</mat-label>
+  <mat-form-field>
+    <textarea matInput formControlName="caption"></textarea>
+  </mat-form-field>
 
-<mat-label>Answers</mat-label>
-<mat-chip-listbox>
-    <mat-chip-option>
-        Answer 1
-        <button matChipRemove><mat-icon>cancel</mat-icon></button>
+  <mat-label>Answers</mat-label>
+  <mat-chip-listbox formControlName="selected">
+    <mat-chip-option
+      color="accent"
+      *ngFor="let option of options; let i = index"
+    >
+      {{ option }}
+      <button matChipRemove (click)="remove(i)">
+        <mat-icon>cancel</mat-icon>
+      </button>
     </mat-chip-option>
-    <mat-chip-option>Answer 2</mat-chip-option>
-    <mat-chip-option>Answer 3</mat-chip-option>
-</mat-chip-listbox>
-<mat-form-field>
-    <input matInput type="text" placeholder="Add Answer...">
-</mat-form-field>
+  </mat-chip-listbox>
+  <mat-form-field>
+    <input
+      matInput
+      type="text"
+      placeholder="Add Answer..."
+      (keydown)="answerKeyDown($event)"
+      (blur)="blur($event)"
+    />
+  </mat-form-field>
 
+  <button mat-raised-button color="primary" (click)="submit()" [disabled]="!form.valid">Add To Quiz</button>
+</ng-container>
 
-<button mat-raised-button color="primary">Add To Quiz</button>
