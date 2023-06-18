@@ -1,10 +1,20 @@
 :host {
     display: grid;
     grid-template-rows: auto 1fr;
+    position: relative;
+
+    app-header {
+        z-index: 1;
+    }
 
     .route-container {
         padding: 8px;
         display: grid;
         grid-template-rows: 0px 1fr;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        grid-row: 2;
+        overflow-y: auto;
     }
 }
