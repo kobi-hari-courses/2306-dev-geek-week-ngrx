@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{question.caption}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            <div class="answer" 
+            *ngFor="let answer of question.answers; let i = index"
+            [class.correct]="i === question.correctAnswer"
+            >
+            <mat-icon *ngIf="i === question.correctAnswer">check</mat-icon>
+            {{answer}}
+        </div>            
+        </mat-card-subtitle>
+        <mat-icon mat-card-avatar color="primary">help</mat-icon>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-button>Delete</button>
+    </mat-card-actions>
+</mat-card>

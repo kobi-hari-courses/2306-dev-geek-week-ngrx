@@ -3,8 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
     { path: '', redirectTo: 'quizes', pathMatch: 'full'},
     { 
-        path: 'quizes', 
-        loadComponent: () => import('./features/quizes/quizes-list/quizes-list.component').then(m => m.QuizesListComponent)
+        path: 'quizes', children: [
+            { path: '', redirectTo: 'list', pathMatch: 'full' }, 
+            { path: 'list', loadComponent: () => import('./features/quizes/quizes-list/quizes-list.component').then(m => m.QuizesListComponent) }, 
+            { path: 'edit/:id', loadComponent: () => import('./features/quizes/quiz-edit/quiz-edit.component').then(m => m.QuizEditComponent) }
+        ]
     },
     {
         path: 'results', 
