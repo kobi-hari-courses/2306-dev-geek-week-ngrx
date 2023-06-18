@@ -1,1 +1,29 @@
-<p>results-list works!</p>
+<mat-card *ngFor="let res of results$ | async">
+    <mat-card-header>
+        <mat-card-title>
+            {{res.caption}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{res.user}}
+        </mat-card-subtitle>
+        <img mat-card-avatar [src]="res.imageUrl">
+    </mat-card-header>
+    <mat-card-content>
+        <div class="root">
+            <div class="correct">
+                <mat-icon>check</mat-icon>
+                Correct: {{res.correct}} / {{res.correct + res.wrong}}
+            </div>
+            <div class="wrong">
+                <mat-icon>close</mat-icon>
+                Wrong: {{res.wrong}} / {{res.correct + res.wrong}}
+            </div>
+            <div class="score">
+                <mat-icon>scoreboard</mat-icon>
+                Score: {{(res.correct / (res.correct + res.wrong)) | percent}}
+            </div>
+    
+        </div>
+    </mat-card-content>
+
+</mat-card>
