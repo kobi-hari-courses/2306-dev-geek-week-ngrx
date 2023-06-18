@@ -1,28 +1,32 @@
-<div class="quiz-panel">
-  <div class="scrollable">
-    <ng-container *ngIf="questions$ | async as questions">
+<ng-container *ngIf="questions$ | async as questions">
+  <div class="quiz-panel">
+    <div class="scrollable">
       <h1>
         {{ name$ | async }}
         <span class="sub">({{ questions.length }} questions)</span>
       </h1>
-      <div class="questions" cdkDropList>
+      <div class="questions" cdkDropList #targetList="cdkDropList">
         <app-question-card
           cdkDrag
-          *ngFor="let question of questions"
+          *ngFor="let question of questions; let i = index"
+          [question]="question"
+          [index]="i + 1"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="questions-panel">
+    <div class="scrollable">
+      <h1>
+        Select Questions
+      </h1>
+      <div class="questions" cdkDropList [cdkDropListConnectedTo]="targetList">
+        <app-question-card
+          cdkDrag
+          *ngFor="let question of catalog$ | async"
           [question]="question"
         />
       </div>
-    </ng-container>  
-  </div>
-</div>
-<div class="questions-panel">
-  <div class="scrollable">
-    <div class="questions" cdkDropList>
-      <app-question-card
-        cdkDrag
-        *ngFor="let question of catalog$ | async"
-        [question]="question"
-      />
     </div>
-</div>
-</div>
+  </div>
+</ng-container>

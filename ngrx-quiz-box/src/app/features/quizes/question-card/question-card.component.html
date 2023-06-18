@@ -1,6 +1,9 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>
+            <ng-container *ngIf="index">
+                {{index}}. 
+            </ng-container>
             {{question.caption}}
         </mat-card-title>
         <mat-card-subtitle>
