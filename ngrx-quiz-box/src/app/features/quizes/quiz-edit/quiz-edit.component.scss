@@ -12,6 +12,17 @@
       height: 100%;
       overflow-y: auto;
 
+
+      h1 {
+        position: sticky;
+        top: 0px;
+        z-index: 3;
+        background-color: var(--p-50);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
       .cdk-drag-placeholder {
         opacity: 0;
       }
@@ -24,7 +35,7 @@
         transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
       }
     }
-  }
+  } //.quiz-panel
 
   .questions-panel {
     grid-column: 2;
@@ -70,6 +81,14 @@
             font-size: 0.8em;
           }
         }
+      } // .search-box 
+
+      .generate-box {
+        position: sticky;
+        top: 0px;
+        z-index: 3;
+        background-color: var(--p-100);
+        padding: 5px;
       }
     }
   }
@@ -82,10 +101,14 @@
   h1 {
     color: var(--p-300);
     font-weight: 100;
-    margin: 4px;
+    padding: 4px;
 
     .sub {
       font-size: 0.5em;
+      align-self: flex-end;
+      padding-bottom: 3px;
+      padding-inline-start: 4px;
+      margin-inline-end: auto;
     }
   }
 }

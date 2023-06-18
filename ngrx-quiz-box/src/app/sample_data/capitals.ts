@@ -1,4 +1,6 @@
-const CAPITALS: {country: string, city: string} []= [
+import { CountryCapital } from "../models/country-capital.model";
+
+export const CAPITALS: CountryCapital[]= [
     {
         "country": "Afghanistan",
         "city": "Kabul"
