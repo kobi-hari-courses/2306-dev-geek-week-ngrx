@@ -32,6 +32,11 @@
     display: grid;
     grid-template-rows: auto 1fr;
     position: relative;
+    background-color: var(--p-100);
+
+    h1 {
+      color: var(--p-500);
+    }
 
     mat-tab-group {
       grid-row: 2;
