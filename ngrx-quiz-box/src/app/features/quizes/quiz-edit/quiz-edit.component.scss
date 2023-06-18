@@ -2,6 +2,16 @@
     display: flex;
     flex-direction: column;
 
+    h1 {
+        color: var(--p-300);
+        font-weight: 100;
+        margin: 4px;
+
+        .sub {
+            font-size: 0.5em;
+        }
+    }
+
     app-question-card {
         margin: 4px;
     }

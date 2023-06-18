@@ -1,4 +1,10 @@
-<app-question-card 
-    *ngFor="let question of questions$ | async"
+<ng-container *ngIf="(questions$ | async) as questions">
+  <h1>
+    {{ name$ | async }} 
+    <span class="sub">({{questions.length}} questions)</span>
+</h1>
+  <app-question-card
+    *ngFor="let question of questions"
     [question]="question"
-    />
+  />
+</ng-container>

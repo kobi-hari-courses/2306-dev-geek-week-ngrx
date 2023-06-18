@@ -12,6 +12,7 @@ import { QuestionCardComponent } from '../question-card/question-card.component'
   styleUrls: ['./quiz-edit.component.scss']
 })
 export class QuizEditComponent {
+  name$ = of(SAMPLE_QUIZES[0].caption);
   questions$ = of(SAMPLE_QUIZES[0].questions);
 
 }
