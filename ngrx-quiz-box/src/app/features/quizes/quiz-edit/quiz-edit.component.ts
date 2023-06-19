@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { map, mergeMap, of, switchMap } from 'rxjs';
+import { firstValueFrom, map, mergeMap, of, switchMap } from 'rxjs';
 import { SAMPLE_QUIZES } from 'src/app/sample_data/quizes';
 import { QuestionCardComponent } from '../question-card/question-card.component';
 import { CdkDrag, CdkDragDrop, CdkDropList } from '@angular/cdk/drag-drop';
@@ -10,6 +10,8 @@ import { QuestionsSourceComponent } from '../questions-source/questions-source.c
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { appFeature } from 'src/app/redux/app-feature/app.feature';
+import { Question } from 'src/app/models/question.model';
+import { quizActions } from 'src/app/redux/actions/quiz.actions';
 
 @Component({
     selector: 'app-quiz-edit',
@@ -46,6 +48,18 @@ export class QuizEditComponent {
     console.log('source data', ev.previousContainer.data[ev.previousIndex]);
     console.groupEnd();
     
+  }
+
+  async onSubmit(question: Question) {
+    const quizId = await firstValueFrom(this.id$);
+
+    const action = quizActions.addNewQuestion({
+      quizId,
+      question
+    })
+
+    this.store.dispatch(action);
+
   }
   
 }

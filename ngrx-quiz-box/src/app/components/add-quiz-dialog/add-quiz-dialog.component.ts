@@ -1,8 +1,10 @@
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { materialModules } from 'src/app/shared/material-modules';
+import { Quiz } from 'src/app/models/quiz.model';
+import { v4 } from 'uuid';
 
 @Component({
   selector: 'app-add-quiz-dialog',
@@ -23,12 +25,18 @@ export class AddQuizDialogComponent {
   submit() {
     if (this.form.valid) {
       console.log('submitted', this.form.getRawValue())
-      this.matDialogRef.close();
+
+      const quiz: Quiz = {
+        id: v4(), 
+        caption: this.form.controls['caption'].value!, 
+        questions: []
+      }
+      this.matDialogRef.close(quiz);
     }
   }
 
   cancel() {
-    this.matDialogRef.close();
+    this.matDialogRef.close(null);
   }
 
 }

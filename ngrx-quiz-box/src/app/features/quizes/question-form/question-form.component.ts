@@ -43,7 +43,7 @@ export class QuestionFormComponent {
     const value = target.value.trim();
 
     if ((value) && (!contains)) {
-      this.options.push(target.value);
+      this.options.push(value);
     }
     target.value = '';
 
