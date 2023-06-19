@@ -11,10 +11,12 @@ export const routes: Routes = [
     },
     {
         path: 'results', 
-        loadComponent: () => import('./features/results/results-list/results-list.component').then(m => m.ResultsListComponent)
+        loadComponent: () => import('./features/results/results-list/results-list.component')
+            .then(m => m.ResultsListComponent)
     }, 
     {
         path: 'run', 
-        loadComponent: () => import('./features/run/run-quiz/run-quiz.component').then(m => m.RunQuizComponent)
+        loadComponent: () => import('./features/run/run-quiz/run-quiz.component')
+            .then(m => m.RunQuizComponent)
     }
 ];
