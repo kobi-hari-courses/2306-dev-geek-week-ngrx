@@ -12,6 +12,6 @@ import { QuizCardComponent } from '../quiz-card/quiz-card.component';
   styleUrls: ['./quizes-list.component.scss']
 })
 export class QuizesListComponent {
-  quizes$ = of(SAMPLE_QUIZES);
+  quizes$ = of([]);
 
 }
