@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SAMPLE_QUIZES } from 'src/app/sample_data/quizes';
-import { of } from 'rxjs';
 import { QuizCardComponent } from '../quiz-card/quiz-card.component';
+import { Store } from '@ngrx/store';
+import { appFeature } from 'src/app/redux/app-feature/app.feature';
 
 @Component({
   selector: 'app-quizes-list',
@@ -12,6 +12,9 @@ import { QuizCardComponent } from '../quiz-card/quiz-card.component';
   styleUrls: ['./quizes-list.component.scss']
 })
 export class QuizesListComponent {
-  quizes$ = of([]);
+  constructor(private store: Store){}
+
+  quizes$ = this.store.select(appFeature.selectQuizes);
+  count$ = this.store.select(appFeature.selectQuizesCount);
 
 }
