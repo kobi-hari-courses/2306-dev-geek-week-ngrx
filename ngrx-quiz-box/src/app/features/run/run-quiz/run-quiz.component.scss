@@ -1,0 +1,20 @@
+:host {
+    .answers {
+        display: flex;
+        flex-direction: column;
+
+        &>div {
+            border: 1px solid gray;
+            border-radius: 5px;
+            margin: 6px;
+            padding: 6px;
+            background-color: var(--p-50);
+            cursor: pointer;
+            user-select: none;
+
+            &:hover {
+                background-color: var(--p-200);
+            }
+        }
+    }
+}

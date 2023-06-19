@@ -15,7 +15,7 @@ export const routes: Routes = [
             .then(m => m.ResultsListComponent)
     }, 
     {
-        path: 'run', 
+        path: 'run/:quizId/:username', 
         loadComponent: () => import('./features/run/run-quiz/run-quiz.component')
             .then(m => m.RunQuizComponent)
     }
