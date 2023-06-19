@@ -15,6 +15,7 @@ export const appReducer = createReducer(INITIAL_APP_STATE,
             ...q, 
             questions: [...q.questions, action.question]
         }))
-    }))
+    })), 
+    on(appActions.reset, (state, action) => action.state ?? state)
     
     );
