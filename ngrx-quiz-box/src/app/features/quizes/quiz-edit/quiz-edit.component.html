@@ -4,10 +4,10 @@
       <h1>
         {{ name$ | async }}
         <span class="sub">({{ questions.length }} questions)</span>
-        <button mat-button color="accent">
+        <button mat-button color="accent" (click)="addMathQuestion()">
           Add Math Question
         </button>
-        <button mat-button color="accent">
+        <button mat-button color="accent" (click)="addCapitalQuestion()">
           Add Capital Question
         </button>
       </h1>

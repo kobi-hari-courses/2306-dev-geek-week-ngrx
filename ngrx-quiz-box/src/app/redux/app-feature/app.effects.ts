@@ -6,10 +6,14 @@ import {
   ofType,
 } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { filter, interval, map, skip, tap } from 'rxjs';
+import { exhaustMap, filter, interval, map, mergeMap, skip, tap } from 'rxjs';
 import { appFeature } from './app.feature';
 import { appActions } from '../actions/app.actions';
 import { AppState } from './app.state';
+import { quizActions } from '../actions/quiz.actions';
+import { QuestionsGeneratorService } from 'src/app/services/questions-generator.service';
+import { serviceActions } from '../actions/service.actions';
+import { DialogsService } from 'src/app/services/dialogs.service';
 
 export const saveToStorage = createEffect(
   (store: Store = inject(Store)) =>
@@ -37,4 +41,31 @@ export const loadFromStorage = createEffect(
       )
     ),
   { functional: true }
+);
+
+
+export const generateQuestion = createEffect(
+  (actions = inject(Actions), service = inject(QuestionsGeneratorService)) => {
+    const res = actions.pipe(
+      ofType(quizActions.generateNewQuestion), 
+      mergeMap(action => service
+          .generate(action.questionType).pipe(
+            map(question => serviceActions.questionGeneratedSuccessfully({question, quizId: action.quizId})
+          ))));
+
+    return res;
+  },{ functional: true}
+);
+
+export const openCreateNewQuizDialog = createEffect(
+  (actions = inject(Actions), service = inject(DialogsService)) => {
+    const res = actions.pipe(
+      ofType(appActions.startCreateNewQuiz), 
+      exhaustMap(_ => service.openNewQuizDialog()), 
+      filter(q => q !== null), 
+      map(q => appActions.addNewQuiz({quiz: q!}))
+    );
+
+    return res;
+  }, {functional: true}
 );

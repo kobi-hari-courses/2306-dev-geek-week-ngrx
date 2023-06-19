@@ -68,6 +68,7 @@ export class QuestionsGeneratorService {
       const timer = setTimeout(() => {
         const res = type === 'captial' ? this.generateCapitalQuestion() : this.generateMathQuestion();
         observer.next(res);
+        observer.complete();
       }, 4000);
 
       return () => clearTimeout(timer);

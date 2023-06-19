@@ -61,5 +61,28 @@ export class QuizEditComponent {
     this.store.dispatch(action);
 
   }
+
+  async addMathQuestion() {
+    const quizId = await firstValueFrom(this.id$);
+
+    const action = quizActions.generateNewQuestion({
+      quizId, 
+      questionType: 'math'
+    })
+
+    this.store.dispatch(action);
+  }
+
+  async addCapitalQuestion() {
+    const quizId = await firstValueFrom(this.id$);
+
+    const action = quizActions.generateNewQuestion({
+      quizId, 
+      questionType: 'captial'
+    })
+
+    this.store.dispatch(action);
+    
+  }
   
 }

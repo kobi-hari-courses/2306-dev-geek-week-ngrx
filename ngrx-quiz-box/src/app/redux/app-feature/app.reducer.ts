@@ -3,6 +3,7 @@ import { INITIAL_APP_STATE } from "./app.state";
 import { appActions } from "../actions/app.actions";
 import { quizActions } from "../actions/quiz.actions";
 import { replaceItem } from "./app.helpers";
+import { serviceActions } from "../actions/service.actions";
 
 export const appReducer = createReducer(INITIAL_APP_STATE, 
     on(appActions.addNewQuiz, (state, action) => ({
@@ -16,6 +17,14 @@ export const appReducer = createReducer(INITIAL_APP_STATE,
             questions: [...q.questions, action.question]
         }))
     })), 
+    on(serviceActions.questionGeneratedSuccessfully, (state, action) => ({
+        ...state, 
+        quizes: replaceItem(state.quizes, q => q.id === action.quizId, q => ({
+            ...q, 
+            questions: [...q.questions, action.question]
+        }))
+    })), 
+
     on(appActions.reset, (state, action) => action.state ?? state)
     
     );
