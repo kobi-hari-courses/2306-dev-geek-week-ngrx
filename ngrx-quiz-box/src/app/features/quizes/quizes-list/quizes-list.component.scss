@@ -1,4 +1,9 @@
 :host {
     display: flex;
     flex-direction: column;
+
+    h1 {
+        font-weight: 100;
+        color: var(--p-400);
+    }
 }
