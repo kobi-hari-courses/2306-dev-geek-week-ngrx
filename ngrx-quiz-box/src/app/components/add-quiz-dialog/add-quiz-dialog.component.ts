@@ -29,7 +29,8 @@ export class AddQuizDialogComponent {
       const quiz: Quiz = {
         id: v4(), 
         caption: this.form.controls['caption'].value!, 
-        questions: []
+        questions: [], 
+        imageUrl: this.form.controls['image'].value ?? undefined
       }
       this.matDialogRef.close(quiz);
     }
