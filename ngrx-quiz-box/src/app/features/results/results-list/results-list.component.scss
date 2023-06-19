@@ -1,0 +1,28 @@
+:host {
+    mat-card {
+        margin: 4px;
+    }
+
+    .root {
+        display: flex;
+        flex-direction: row;
+
+        &>div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 10px;
+
+            &.correct {
+                color: var(--p-400);
+            }
+            &.wrong {
+                color: var(--w-400);
+            }    
+            
+            mat-icon {
+                margin: 4px;
+            }
+        }
+    }
+}

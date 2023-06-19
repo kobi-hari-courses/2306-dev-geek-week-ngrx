@@ -1,0 +1,13 @@
+<img src="assets/logo.svg">
+<h2>Quiz Box</h2>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a mat-tab-link routerLink="quizes">Quizes</a>
+    <a mat-tab-link routerLink="results">Results</a>
+    <a mat-tab-link routerLink="run">Run</a>
+</nav>
+
+<button mat-mini-fab color="accent" (click)="open()">
+    <mat-icon>add</mat-icon>
+</button>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>

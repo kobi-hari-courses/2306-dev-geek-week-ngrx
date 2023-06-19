@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+
+@mixin go() {
+    @include mat.core();
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }    
+
+    body {
+      display: grid;
+      background: var(--b-background);
+      color: var(--f-text);
+    }
+
+    * {
+        padding: 0px;
+        margin: 0px;
+        font-family: Roboto;
+        box-sizing: border-box;
+    }
+
+    mat-icon.mat-icon {
+      width: auto;
+      height: auto;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+     
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+     
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--p-300);
+      border-radius: 3px;
+    }
+
+    mat-tab-group.stretch .mat-mdc-tab-body-wrapper {
+      flex: 1;
+    }
+}

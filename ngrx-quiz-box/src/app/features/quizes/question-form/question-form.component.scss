@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    textarea {
+        resize: none;        
+    }
+
+    mat-label {
+        color: var(--p-600);
+        margin-bottom: 4px;
+    }
+}

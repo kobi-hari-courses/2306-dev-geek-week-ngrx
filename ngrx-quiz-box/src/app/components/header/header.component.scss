@@ -1,0 +1,32 @@
+:host {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 32px;
+    background-color: var(--p-50);
+    border-bottom: 1px solid var(--p-400);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+
+    &>* {
+        margin: 10px;
+    }
+
+    h2 {
+        color: var(--p-500);
+        font-size: 36px;
+        font-weight: 100;
+    }
+
+    img {
+        height: 56px;
+    }
+
+    nav {
+        margin-inline-start: auto;
+    }
+
+    mat-tab-nav-panel {
+        display: none;
+    }
+}

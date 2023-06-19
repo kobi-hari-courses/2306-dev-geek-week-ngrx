@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Run Quiz...</h1>
+
+<div mat-dialog-content>
+  <div
+    class="form"
+    [formGroup]="form"
+    (keydown.enter)="submit()"
+    (keydown.escape)="cancel()"
+  >
+    <mat-form-field>
+      <mat-label>User Name</mat-label>
+      <input type="text" matInput formControlName="user" />
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    color="accent"
+    [disabled]="!form.valid"
+    (click)="submit()"
+  >
+    Start
+  </button>
+  <button mat-button color="accent" (click)="cancel()">Cancel</button>
+</div>
+

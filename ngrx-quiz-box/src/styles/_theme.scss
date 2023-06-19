@@ -1,0 +1,89 @@
+@use '@angular/material' as mat;
+@use "sass:map";
+
+@mixin go($primary, $accent, $is-light: true) {
+  $theme: _create_theme_map($primary, $accent, $is-light);
+
+  @if (&==null) {
+    @include mat.all-component-themes($theme);
+    :root {
+      @include _create_vars($theme);
+    }
+  }
+  @else {
+    @include mat.all-component-colors($theme);
+    @include _create_vars($theme);
+  }
+}
+
+@function _create_theme_map($primary, $accent, $is-light: true) {
+  $plt-primary: mat.define-palette($primary, 400);
+  $plt-accent: mat.define-palette($accent, A200, A100, A700);
+  $plt-warn: mat.define-palette(mat.$red-palette);
+
+  @if $is-light {
+    @return mat.define-light-theme((
+      color: (primary: $plt-primary,
+          accent: $plt-accent,
+          warn: $plt-warn,
+        ), 
+      density: -1));
+  }
+
+  @else {
+    @return mat.define-dark-theme((
+      color: (primary: $plt-primary,
+          accent: $plt-accent,
+          warn: $plt-warn,
+        ), 
+      density: -1));
+  }
+}
+
+@mixin _create_vars($theme) {
+  $primary: map.get($theme, primary);
+  $accent: map.get($theme, accent);
+  $warn: map.get($theme, warn);
+
+  $primary-contrast: map.get($primary, contrast);
+  $accent-contrast: map.get($accent, contrast);
+  $warn-contrast: map.get($warn, contrast);
+
+  $foreground: map.get($theme, foreground);
+  $background: map.get($theme, background);
+
+  $keys: (50: 50, 100: 100, 200:200, 300:300, 400:400, 500:500, 600:600, 700:700, 800:800, 900:900);
+  $accent-keys: (A100: 100, A200: 200, A400: 400, A700: 700);
+
+  @include _create_palette_vars("p", $primary, $keys);
+  @include _create_palette_vars("pc", $primary-contrast, $keys);
+
+  @include _create_palette_vars("a", $accent, $accent-keys);
+  @include _create_palette_vars("ac", $accent-contrast, $accent-keys);
+
+  @include _create_palette_vars("w", $warn, $keys);
+  @include _create_palette_vars("wc", $warn-contrast, $keys);
+
+  @include _create_palette_vars("b", $background);
+  @include _create_palette_vars("f", $foreground);
+
+
+}
+
+@mixin _create_palette_vars($prefix, $palette, $keys: null) {
+  @if $keys ==null {
+
+    @each $key,
+    $value in $palette {
+      --#{$prefix}-#{$key}: #{$value};
+    }
+  }
+
+  @else {
+
+    @each $key,
+    $value in $keys {
+      --#{$prefix}-#{$value}: #{map.get($palette, $key)};
+    }
+  }
+}

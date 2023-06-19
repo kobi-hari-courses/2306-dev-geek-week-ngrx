@@ -1,0 +1,6 @@
+@use '@angular/material' as mat;
+@use 'main';
+@use 'theme';
+
+@include main.go();
+@include theme.go(mat.$brown-palette, mat.$deep-orange-palette);

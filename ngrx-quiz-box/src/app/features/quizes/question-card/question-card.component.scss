@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  user-select: none;
+
+  mat-card {
+    mat-card-header {
+      mat-icon[mat-card-avatar] {
+        font-size: 1.5em;
+        color: var(--p-400);
+      }
+
+      mat-card-subtitle {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 4px;
+
+        .answer {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          color: var(--f-secondary-text);
+          font-size: 0.8em;
+          margin-top: 6px;
+          margin-inline-end: 12px;
+
+          &.correct {
+            color: var(--a-400);
+          }
+
+          mat-icon {
+            font-size: 14px;
+            margin-inline-end: 2px;
+          }
+        }
+      }
+    }
+
+    mat-card-content {
+    }
+  }
+}

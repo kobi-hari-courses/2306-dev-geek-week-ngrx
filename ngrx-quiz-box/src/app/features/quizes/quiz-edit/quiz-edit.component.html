@@ -1,0 +1,43 @@
+<ng-container *ngIf="questions$ | async as questions">
+  <div class="quiz-panel">
+    <div class="scrollable">
+      <h1>
+        {{ name$ | async }}
+        <span class="sub">({{ questions.length }} questions)</span>
+        <button mat-button color="accent">
+          Add Math Question
+        </button>
+        <button mat-button color="accent">
+          Add Capital Question
+        </button>
+      </h1>
+      <div class="questions" cdkDropList #targetList="cdkDropList"
+        (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListData]="questions"
+      >
+        <app-question-card
+          cdkDrag
+          *ngFor="let question of questions; let i = index"
+          [question]="question"
+          [index]="i + 1"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="questions-panel">
+    <h1>Questions</h1>
+    <mat-tab-group class="stretch">
+      <mat-tab label="From Other Quizes">
+        <div class="root">
+          <div class="search-box">
+            <input type="search" matInput placeholder="Search" />
+          </div>
+          <app-questions-source [questions]="(catalog$ | async)!" [targetList]="targetList"/>
+        </div>
+      </mat-tab>
+      <mat-tab label="New Question">
+        <app-question-form/>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</ng-container>
